@@ -4,66 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aad8ddb7-b5b6-4388-b5b4-5487bf11c8f5" name="Changes" comment="Ajusts new">
-      <change afterPath="$PROJECT_DIR$/src/backend/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/backend/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/backend/config/db.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/backend/controllers/roomController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/backend/controllers/scheduleController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/backend/controllers/subjectController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/backend/controllers/teacherController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/backend/middlewares/errorHandler.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/backend/models/Schedule.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/backend/models/roomModel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/backend/models/subjectModel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/backend/models/teacherModel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/backend/routes/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/backend/routes/roomRoutes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/backend/routes/schedules.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/backend/routes/subjectRoutes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/backend/routes/teacherRoutes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/EditRoomPage.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/EditRoomPage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/EditSubjectPage.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/EditSubjectPage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/EditTeacherPage.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/EditTeacherPage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/NewRoomRegistrationPage.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/NewRoomRegistrationPage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/NewSubjectRegistrationPage.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/NewSubjectRegistrationPage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/NewTeacherRegistrationPage.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/NewTeacherRegistrationPage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/RegisteredCoursesPage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/RoomsPage.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/RoomsPage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/SchedulePage.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/SchedulePage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/SubjectsPage.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/SubjectsPage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/TeachersPage.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/TeachersPage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/ViewRoomPage.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/ViewSubjectPage.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/ViewSubjectPage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/ViewTeacherPage.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/ViewTeacherPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/src/pages/CourseEditingPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/src/pages/CourseEditingPage.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/src/pages/CourseEditingPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/src/pages/CourseEditingPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/src/pages/HomePage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/src/pages/HomePage.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/src/pages/HomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/src/pages/HomePage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/src/pages/NewCourseRegistrationPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/src/pages/NewCourseRegistrationPage.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/src/pages/NewCourseRegistrationPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/src/pages/NewCourseRegistrationPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/src/pages/RegisteredCoursesPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/src/pages/RegisteredCoursesPage.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/src/pages/RegisteredCoursesPages.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/src/pages/ViewPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/src/pages/ViewPage.js" afterDir="false" />
-    </list>
+    <list default="true" id="aad8ddb7-b5b6-4388-b5b4-5487bf11c8f5" name="Changes" comment="Ajusts new" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -130,8 +71,27 @@
       <option name="project" value="LOCAL" />
       <updated>1718330899277</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Ajusts new">
+      <option name="closed" value="true" />
+      <created>1718402021993</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1718402021993</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Ajusts" />
