@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="aad8ddb7-b5b6-4388-b5b4-5487bf11c8f5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClassScheduleSystem.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/frontend/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/frontend/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/frontend/src/App.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/CourseEditingPage.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/CourseEditingPage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/HomePage.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/HomePage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/NewCourseRegistrationPage.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/NewCourseRegistrationPage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/RegisteredCoursesPage.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/RegisteredCoursesPages.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/ViewPage.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/ViewPage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/frontend/src/styles/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/frontend/tailwind.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2hhyzUrbctzjzyQ6DjBgL3hOUlk" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "onboarding.tips.debug.path": "C:/Users/Suco/IdeaProjects/ClassScheduleSystem/src/Main.java"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Suco\IdeaProjects\ClassScheduleSystem\src\frontend\public" />
+      <recent name="C:\Users\Suco\IdeaProjects\ClassScheduleSystem\src" />
+      <recent name="C:\Users\Suco\IdeaProjects\ClassScheduleSystem\src\frontend" />
+      <recent name="C:\Users\Suco\IdeaProjects\ClassScheduleSystem\src\frontend\src" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="aad8ddb7-b5b6-4388-b5b4-5487bf11c8f5" name="Changes" comment="" />
+      <created>1718060870308</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1718060870308</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Main.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
