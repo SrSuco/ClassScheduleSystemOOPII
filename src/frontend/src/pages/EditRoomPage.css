@@ -1,0 +1,19 @@
+.edit-room-page {
+  display: flex;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+.sidebar, .profile, .avatar, .username, .navigation, .main-content, header, .breadcrumb, .edit-form, .form-group, .form-group label, .form-group input, .form-actions, .btn, .btn.cancel, .btn.save {
+
+}
+
+.btn.save {
+  background-color: #3F51B5;
+  color: white;
+}
+
+.btn.cancel {
+  background-color: #9E9E9E;
+  color: white;
+}

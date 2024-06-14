@@ -1,6 +1,8 @@
+/* NewCourseRegistrationPage.css */
 .new-course-registration-page {
   display: flex;
   height: 100vh;
+  font-family: Arial, sans-serif;
 }
 
 .sidebar {
@@ -39,11 +41,12 @@
 .navigation ul {
   list-style-type: none;
   padding: 0;
+  width: 100%;
 }
 
 .navigation li {
   width: 100%;
-  text-align: center;
+  text-align: left;
   margin: 10px 0;
 }
 
@@ -51,15 +54,18 @@
   color: white;
   text-decoration: none;
   font-size: 1.1em;
+  padding: 10px;
+  display: block;
 }
 
 .navigation a:hover {
-  text-decoration: underline;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .main-content {
   flex-grow: 1;
   padding: 20px;
+  background-color: #f9f9f9;
 }
 
 header {
@@ -68,12 +74,17 @@ header {
   margin-bottom: 20px;
 }
 
+header h1 {
+  margin: 0;
+}
+
 .breadcrumb {
-  margin-top: 10px;
+  font-size: 0.9em;
+  color: #666;
 }
 
 .breadcrumb a {
-  color: #333;
+  color: #666;
   text-decoration: none;
 }
 

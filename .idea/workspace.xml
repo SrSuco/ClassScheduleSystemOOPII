@@ -4,31 +4,65 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aad8ddb7-b5b6-4388-b5b4-5487bf11c8f5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ClassScheduleSystem.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/public/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/src/App.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/CourseEditingPage.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/CourseEditingPage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/HomePage.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/HomePage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/NewCourseRegistrationPage.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/NewCourseRegistrationPage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/RegisteredCoursesPage.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/RegisteredCoursesPages.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/ViewPage.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/ViewPage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/src/styles/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/tailwind.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+    <list default="true" id="aad8ddb7-b5b6-4388-b5b4-5487bf11c8f5" name="Changes" comment="Ajusts new">
+      <change afterPath="$PROJECT_DIR$/src/backend/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/backend/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/backend/config/db.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/backend/controllers/roomController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/backend/controllers/scheduleController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/backend/controllers/subjectController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/backend/controllers/teacherController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/backend/middlewares/errorHandler.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/backend/models/Schedule.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/backend/models/roomModel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/backend/models/subjectModel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/backend/models/teacherModel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/backend/routes/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/backend/routes/roomRoutes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/backend/routes/schedules.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/backend/routes/subjectRoutes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/backend/routes/teacherRoutes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/EditRoomPage.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/EditRoomPage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/EditSubjectPage.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/EditSubjectPage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/EditTeacherPage.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/EditTeacherPage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/NewRoomRegistrationPage.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/NewRoomRegistrationPage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/NewSubjectRegistrationPage.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/NewSubjectRegistrationPage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/NewTeacherRegistrationPage.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/NewTeacherRegistrationPage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/RegisteredCoursesPage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/RoomsPage.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/RoomsPage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/SchedulePage.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/SchedulePage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/SubjectsPage.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/SubjectsPage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/TeachersPage.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/TeachersPage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/ViewRoomPage.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/ViewSubjectPage.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/ViewSubjectPage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/ViewTeacherPage.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/frontend/src/pages/ViewTeacherPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/src/pages/CourseEditingPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/src/pages/CourseEditingPage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/src/pages/CourseEditingPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/src/pages/CourseEditingPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/src/pages/HomePage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/src/pages/HomePage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/src/pages/HomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/src/pages/HomePage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/src/pages/NewCourseRegistrationPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/src/pages/NewCourseRegistrationPage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/src/pages/NewCourseRegistrationPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/src/pages/NewCourseRegistrationPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/src/pages/RegisteredCoursesPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/src/pages/RegisteredCoursesPage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/src/pages/RegisteredCoursesPages.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/src/pages/ViewPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/src/pages/ViewPage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,17 +94,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "onboarding.tips.debug.path": "C:/Users/Suco/IdeaProjects/ClassScheduleSystem/src/Main.java"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Suco/IdeaProjects/ClassScheduleSystem/src/Main.java&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Suco\IdeaProjects\ClassScheduleSystem\src\frontend\public" />
@@ -88,17 +122,20 @@
       <option name="presentableId" value="Default" />
       <updated>1718060870308</updated>
     </task>
+    <task id="LOCAL-00001" summary="Ajusts">
+      <option name="closed" value="true" />
+      <created>1718330899277</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1718330899277</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Main.java</url>
-          <line>13</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Ajusts" />
+    <MESSAGE value="Ajusts new" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajusts new" />
   </component>
 </project>

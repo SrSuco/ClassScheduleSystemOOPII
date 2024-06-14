@@ -1,7 +1,10 @@
 import React from 'react';
 import './RegisteredCoursesPage.css';
+import { Link, useNavigate } from 'react-router-dom';
 
 const RegisteredCoursesPage = () => {
+  const navigate = useNavigate();
+
   const courses = [
     { id: 1, name: 'Bacharel em Engenharia de Software' },
     { id: 2, name: 'Bacharel em Sistemas de Informação' }
@@ -16,12 +19,12 @@ const RegisteredCoursesPage = () => {
         </div>
         <nav className="navigation">
           <ul>
-            <li><a href="#">Cursos</a></li>
-            <li><a href="#">Professores</a></li>
-            <li><a href="#">Disciplinas</a></li>
-            <li><a href="#">Salas</a></li>
-            <li><a href="#">Horário</a></li>
-            <li><a href="#">Sair</a></li>
+            <li><Link to="/registered-courses">Cursos</Link></li>
+            <li><Link to="/teachers">Professores</Link></li>
+            <li><Link to="/subjects">Disciplinas</Link></li>
+            <li><Link to="/rooms">Salas</Link></li>
+            <li><Link to="/schedule">Horário</Link></li>
+            <li><Link to="/logout">Sair</Link></li>
           </ul>
         </nav>
       </aside>
@@ -29,9 +32,9 @@ const RegisteredCoursesPage = () => {
         <header>
           <h1>Cursos</h1>
           <nav className="breadcrumb">
-            <a href="#">Início</a> &gt; Cursos
+            <Link to="/">Início</Link> &gt; <span>Cursos</span>
           </nav>
-          <button className="btn new-course">Novo</button>
+          <button className="new-course" onClick={() => navigate('/new-course')}>Novo</button>
         </header>
         <section>
           <table>
@@ -47,7 +50,7 @@ const RegisteredCoursesPage = () => {
                 <tr key={course.id}>
                   <td>#{course.id}</td>
                   <td>{course.name}</td>
-                  <td><button className="btn view">Visualizar</button></td>
+                  <td><button className="view" onClick={() => navigate(`/view-course/${course.id}`)}>Visualizar</button></td>
                 </tr>
               ))}
             </tbody>

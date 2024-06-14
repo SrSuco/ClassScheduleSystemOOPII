@@ -1,0 +1,8 @@
+.teachers-page {
+  display: flex;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+.sidebar, .profile, .avatar, .username, .navigation, .main-content, header, .breadcrumb, table, th, td, .view, .new-teacher {
+}

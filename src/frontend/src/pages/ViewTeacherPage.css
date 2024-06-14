@@ -1,5 +1,4 @@
-/* CourseEditingPage.css */
-.course-editing-page {
+.view-teacher-page {
   display: flex;
   height: 100vh;
   font-family: Arial, sans-serif;
@@ -50,7 +49,7 @@
   margin: 10px 0;
 }
 
-.navigation button {
+.navigation button, .navigation a {
   color: white;
   background: none;
   border: none;
@@ -59,9 +58,10 @@
   font-size: 1.1em;
   padding: 10px;
   cursor: pointer;
+  text-decoration: none;
 }
 
-.navigation button:hover {
+.navigation button:hover, .navigation a:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
@@ -75,9 +75,6 @@ header {
   border-bottom: 1px solid #ccc;
   padding-bottom: 10px;
   margin-bottom: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 header h1 {
@@ -98,7 +95,7 @@ header h1 {
   text-decoration: underline;
 }
 
-.edit-form {
+.view-form {
   display: flex;
   flex-direction: column;
   max-width: 400px;
@@ -122,7 +119,7 @@ header h1 {
 
 .form-actions {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
 .btn {
@@ -133,17 +130,7 @@ header h1 {
   font-size: 1em;
 }
 
-.btn.cancel {
-  background-color: #9E9E9E;
-  color: white;
-}
-
-.btn.save {
-  background-color: #3F51B5;
-  color: white;
-}
-
 .btn.edit {
-  background-color: #F44336;
+  background-color: #3F51B5;
   color: white;
 }

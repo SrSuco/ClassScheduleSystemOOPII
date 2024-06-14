@@ -1,0 +1,9 @@
+.new-subject-registration-page {
+  display: flex;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+.sidebar, .profile, .avatar, .username, .navigation, .main-content, header, .breadcrumb, .new-subject-form, .form-group, .form-group label, .form-group input, .form-actions, .btn, .btn.cancel, .btn.save {
+
+}

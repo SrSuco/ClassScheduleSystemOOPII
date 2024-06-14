@@ -1,7 +1,10 @@
 import React from 'react';
 import './NewCourseRegistrationPage.css';
+import { useNavigate } from 'react-router-dom';
 
 const NewCourseRegistrationPage = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="new-course-registration-page">
       <aside className="sidebar">
@@ -11,12 +14,12 @@ const NewCourseRegistrationPage = () => {
         </div>
         <nav className="navigation">
           <ul>
-            <li><a href="#">Cursos</a></li>
-            <li><a href="#">Professores</a></li>
-            <li><a href="#">Disciplinas</a></li>
-            <li><a href="#">Salas</a></li>
-            <li><a href="#">Horário</a></li>
-            <li><a href="#">Sair</a></li>
+            <li><a onClick={() => navigate('/registered-courses')}>Cursos</a></li>
+            <li><a onClick={() => navigate('/teachers')}>Professores</a></li>
+            <li><a onClick={() => navigate('/subjects')}>Disciplinas</a></li>
+            <li><a onClick={() => navigate('/rooms')}>Salas</a></li>
+            <li><a onClick={() => navigate('/schedule')}>Horário</a></li>
+            <li><a onClick={() => navigate('/logout')}>Sair</a></li>
           </ul>
         </nav>
       </aside>
@@ -34,7 +37,7 @@ const NewCourseRegistrationPage = () => {
               <input type="text" id="course-name" placeholder="Informe o nome" />
             </div>
             <div className="form-actions">
-              <button type="button" className="btn cancel">Cancelar</button>
+              <button type="button" className="btn cancel" onClick={() => navigate('/registered-courses')}>Cancelar</button>
               <button type="submit" className="btn save">Salvar</button>
               <button type="button" className="btn delete">Excluir</button>
             </div>
