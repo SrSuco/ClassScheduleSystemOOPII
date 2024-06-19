@@ -1,19 +1,30 @@
-import React from 'react';
-import './ViewRoomPage.css';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import roomsService from '../services/roomsService';
+import './NewRoomRegistrationPage.css';
 
-const ViewRoomPage = () => {
-  const { id } = useParams();
+const NewRoomRegistrationPage = () => {
   const navigate = useNavigate();
+  const [room, setRoom] = useState({
+    name: ''
+  });
 
-  const room = {
-    id: 1,
-    name: 'Room A',
-    lastUpdate: '10/06/2024'
-  }; // This should be fetched from a data source
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setRoom((prevRoom) => ({
+      ...prevRoom,
+      [name]: value
+    }));
+  };
+
+  const handleSave = async (e) => {
+    e.preventDefault();
+    await roomsService.createRoom(room);
+    navigate('/rooms');
+  };
 
   return (
-    <div className="view-room-page">
+    <div className="new-room-registration-page">
       <aside className="sidebar">
         <div className="profile">
           <div className="avatar"></div>
@@ -21,38 +32,31 @@ const ViewRoomPage = () => {
         </div>
         <nav className="navigation">
           <ul>
-            <li><Link to="/registered-courses">Cursos</Link></li>
-            <li><Link to="/teachers">Professores</Link></li>
-            <li><Link to="/subjects">Disciplinas</Link></li>
-            <li><Link to="/rooms">Salas</Link></li>
-            <li><Link to="/schedule">Horário</Link></li>
-            <li><Link to="/logout">Sair</Link></li>
+            <li><button onClick={() => navigate('/registered-courses')}>Cursos</button></li>
+            <li><button onClick={() => navigate('/teachers')}>Professores</button></li>
+            <li><button onClick={() => navigate('/subjects')}>Disciplinas</button></li>
+            <li><button onClick={() => navigate('/rooms')}>Salas</button></li>
+            <li><button onClick={() => navigate('/schedule')}>Horário</button></li>
+            <li><button onClick={() => navigate('/logout')}>Sair</button></li>
           </ul>
         </nav>
       </aside>
       <main className="main-content">
         <header>
-          <h1>Visualizar Sala</h1>
+          <h1>Nova Sala</h1>
           <nav className="breadcrumb">
-            <Link to="/">Início</Link> &gt; <Link to="/rooms">Salas</Link> &gt; <span>{room.name}</span>
+            <a href="#">Início</a> &gt; <a href="#">Salas</a> &gt; Novo
           </nav>
         </header>
         <section>
-          <form className="view-form">
-            <div className="form-group">
-              <label htmlFor="room-id">ID</label>
-              <input type="text" id="room-id" value={room.id} readOnly />
-            </div>
+          <form className="new-room-form" onSubmit={handleSave}>
             <div className="form-group">
               <label htmlFor="room-name">Nome</label>
-              <input type="text" id="room-name" value={room.name} readOnly />
-            </div>
-            <div className="form-group">
-              <label htmlFor="last-update">Data da Última atualização</label>
-              <input type="text" id="last-update" value={room.lastUpdate} readOnly />
+              <input type="text" id="room-name" name="name" placeholder="Informe o nome" value={room.name} onChange={handleChange} />
             </div>
             <div className="form-actions">
-              <button type="button" className="btn edit" onClick={() => navigate(`/edit-room/${id}`)}>Editar</button>
+              <button type="button" className="btn cancel" onClick={() => navigate('/rooms')}>Cancelar</button>
+              <button type="submit" className="btn save">Salvar</button>
             </div>
           </form>
         </section>
@@ -61,4 +65,4 @@ const ViewRoomPage = () => {
   );
 };
 
-export default ViewRoomPage;
+export default NewRoomRegistrationPage;

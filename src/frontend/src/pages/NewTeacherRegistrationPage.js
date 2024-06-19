@@ -1,13 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import teachersService from '../services/teachersService';
 import './NewTeacherRegistrationPage.css';
-import { Link, useNavigate } from 'react-router-dom';
 
 const NewTeacherRegistrationPage = () => {
   const navigate = useNavigate();
+  const [teacher, setTeacher] = useState({
+    name: ''
+  });
 
-  const handleSave = () => {
-    // Placeholder function for saving logic
-    alert('Teacher saved');
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setTeacher((prevTeacher) => ({
+      ...prevTeacher,
+      [name]: value
+    }));
+  };
+
+  const handleSave = async (e) => {
+    e.preventDefault();
+    await teachersService.createTeacher(teacher);
     navigate('/teachers');
   };
 
@@ -20,12 +32,12 @@ const NewTeacherRegistrationPage = () => {
         </div>
         <nav className="navigation">
           <ul>
-            <li><Link to="/registered-courses">Cursos</Link></li>
-            <li><Link to="/teachers">Professores</Link></li>
-            <li><Link to="/subjects">Disciplinas</Link></li>
-            <li><Link to="/rooms">Salas</Link></li>
-            <li><Link to="/schedule">Horário</Link></li>
-            <li><Link to="/logout">Sair</Link></li>
+            <li><button onClick={() => navigate('/registered-courses')}>Cursos</button></li>
+            <li><button onClick={() => navigate('/teachers')}>Professores</button></li>
+            <li><button onClick={() => navigate('/subjects')}>Disciplinas</button></li>
+            <li><button onClick={() => navigate('/rooms')}>Salas</button></li>
+            <li><button onClick={() => navigate('/schedule')}>Horário</button></li>
+            <li><button onClick={() => navigate('/logout')}>Sair</button></li>
           </ul>
         </nav>
       </aside>
@@ -33,18 +45,19 @@ const NewTeacherRegistrationPage = () => {
         <header>
           <h1>Novo Professor</h1>
           <nav className="breadcrumb">
-            <Link to="/">Início</Link> &gt; <Link to="/teachers">Professores</Link> &gt; <span>Novo</span>
+            <a href="#">Início</a> &gt; <a href="#">Professores</a> &gt; Novo
           </nav>
         </header>
         <section>
-          <form className="new-teacher-form">
+          <form className="new-teacher-form" onSubmit={handleSave}>
             <div className="form-group">
               <label htmlFor="teacher-name">Nome</label>
-              <input type="text" id="teacher-name" placeholder="Informe o nome" />
+              <input type="text" id="teacher-name" name="name" placeholder="Informe o nome" value={teacher.name} onChange={handleChange} />
             </div>
             <div className="form-actions">
               <button type="button" className="btn cancel" onClick={() => navigate('/teachers')}>Cancelar</button>
-              <button type="button" className="btn save" onClick={handleSave}>Salvar</button>
+              <button type="submit" className="btn save">Salvar</button>
+              <button type="button" className="btn delete" onClick={() => setTeacher({ ...teacher })}>Excluir</button>
             </div>
           </form>
         </section>

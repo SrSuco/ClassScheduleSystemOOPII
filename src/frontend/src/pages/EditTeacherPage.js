@@ -1,32 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import teachersService from '../services/teachersService';
 import './EditTeacherPage.css';
-import { Link, useNavigate, useParams } from 'react-router-dom';
 
-const EditTeacherPage = () => {
-  const { id } = useParams();
+const TeacherEditingPage = () => {
   const navigate = useNavigate();
-
+  const { id } = useParams();
   const [teacher, setTeacher] = useState({
-    id: 1,
-    name: 'John Doe',
-  }); // This should be fetched from a data source
+    id: '',
+    name: ''
+  });
+
+  useEffect(() => {
+    const fetchTeacher = async () => {
+      const data = await teachersService.getTeacher(id);
+      setTeacher(data);
+    };
+    fetchTeacher();
+  }, [id]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setTeacher((prevTeacher) => ({
       ...prevTeacher,
-      [name]: value,
+      [name]: value
     }));
   };
 
-  const handleSave = (e) => {
+  const handleSave = async (e) => {
     e.preventDefault();
-    // Save logic here
+    await teachersService.updateTeacher(id, teacher);
     navigate('/teachers');
   };
 
   return (
-    <div className="edit-teacher-page">
+    <div className="teacher-editing-page">
       <aside className="sidebar">
         <div className="profile">
           <div className="avatar"></div>
@@ -34,12 +42,12 @@ const EditTeacherPage = () => {
         </div>
         <nav className="navigation">
           <ul>
-            <li><Link to="/registered-courses">Cursos</Link></li>
-            <li><Link to="/teachers">Professores</Link></li>
-            <li><Link to="/subjects">Disciplinas</Link></li>
-            <li><Link to="/rooms">Salas</Link></li>
-            <li><Link to="/schedule">Horário</Link></li>
-            <li><Link to="/logout">Sair</Link></li>
+            <li><button onClick={() => navigate('/registered-courses')}>Cursos</button></li>
+            <li><button onClick={() => navigate('/teachers')}>Professores</button></li>
+            <li><button onClick={() => navigate('/subjects')}>Disciplinas</button></li>
+            <li><button onClick={() => navigate('/rooms')}>Salas</button></li>
+            <li><button onClick={() => navigate('/schedule')}>Horário</button></li>
+            <li><button onClick={() => navigate('/logout')}>Sair</button></li>
           </ul>
         </nav>
       </aside>
@@ -47,28 +55,23 @@ const EditTeacherPage = () => {
         <header>
           <h1>Editar Professor</h1>
           <nav className="breadcrumb">
-            <Link to="/">Início</Link> &gt; <Link to="/teachers">Professores</Link> &gt; <span>{teacher.name}</span>
+            <a href="#">Início</a> &gt; <a href="#">Professores</a> &gt; <a href="#">#1</a> &gt; Editar
           </nav>
         </header>
         <section>
           <form className="edit-form" onSubmit={handleSave}>
             <div className="form-group">
               <label htmlFor="teacher-id">ID</label>
-              <input type="text" id="teacher-id" value={teacher.id} readOnly />
+              <input type="text" id="teacher-id" name="id" value={teacher.id} readOnly />
             </div>
             <div className="form-group">
               <label htmlFor="teacher-name">Nome</label>
-              <input
-                type="text"
-                id="teacher-name"
-                name="name"
-                value={teacher.name}
-                onChange={handleChange}
-              />
+              <input type="text" id="teacher-name" name="name" value={teacher.name} onChange={handleChange} />
             </div>
             <div className="form-actions">
               <button type="button" className="btn cancel" onClick={() => navigate('/teachers')}>Cancelar</button>
               <button type="submit" className="btn save">Salvar</button>
+              <button type="button" className="btn edit" onClick={() => setTeacher({ ...teacher })}>Editar</button>
             </div>
           </form>
         </section>
@@ -77,4 +80,4 @@ const EditTeacherPage = () => {
   );
 };
 
-export default EditTeacherPage;
+export default TeacherEditingPage;

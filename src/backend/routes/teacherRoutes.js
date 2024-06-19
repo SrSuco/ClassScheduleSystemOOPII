@@ -1,21 +1,14 @@
 const express = require('express');
+const router = express.Router();
 const {
   getTeachers,
-  createTeacher,
   getTeacherById,
+  createTeacher,
   updateTeacher,
   deleteTeacher
 } = require('../controllers/teacherController');
 
-const router = express.Router();
-
-router.route('/')
-  .get(getTeachers)
-  .post(createTeacher);
-
-router.route('/:id')
-  .get(getTeacherById)
-  .put(updateTeacher)
-  .delete(deleteTeacher);
+router.route('/').get(getTeachers).post(createTeacher);
+router.route('/:id').get(getTeacherById).put(updateTeacher).delete(deleteTeacher);
 
 module.exports = router;

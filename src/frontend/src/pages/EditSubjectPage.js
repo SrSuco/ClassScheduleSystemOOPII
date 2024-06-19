@@ -1,32 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import subjectsService from '../services/subjectsService';
 import './EditSubjectPage.css';
-import { Link, useNavigate, useParams } from 'react-router-dom';
 
-const EditSubjectPage = () => {
-  const { id } = useParams();
+const SubjectEditingPage = () => {
   const navigate = useNavigate();
-
+  const { id } = useParams();
   const [subject, setSubject] = useState({
-    id: 1,
-    name: 'Mathematics',
-  }); // This should be fetched from a data source
+    id: '',
+    name: ''
+  });
+
+  useEffect(() => {
+    const fetchSubject = async () => {
+      const data = await subjectsService.getSubject(id);
+      setSubject(data);
+    };
+    fetchSubject();
+  }, [id]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setSubject((prevSubject) => ({
       ...prevSubject,
-      [name]: value,
+      [name]: value
     }));
   };
 
-  const handleSave = (e) => {
+  const handleSave = async (e) => {
     e.preventDefault();
-    // Save logic here
+    await subjectsService.updateSubject(id, subject);
     navigate('/subjects');
   };
 
   return (
-    <div className="edit-subject-page">
+    <div className="subject-editing-page">
       <aside className="sidebar">
         <div className="profile">
           <div className="avatar"></div>
@@ -34,12 +42,12 @@ const EditSubjectPage = () => {
         </div>
         <nav className="navigation">
           <ul>
-            <li><Link to="/registered-courses">Cursos</Link></li>
-            <li><Link to="/teachers">Professores</Link></li>
-            <li><Link to="/subjects">Disciplinas</Link></li>
-            <li><Link to="/rooms">Salas</Link></li>
-            <li><Link to="/schedule">Horário</Link></li>
-            <li><Link to="/logout">Sair</Link></li>
+            <li><button onClick={() => navigate('/registered-courses')}>Cursos</button></li>
+            <li><button onClick={() => navigate('/teachers')}>Professores</button></li>
+            <li><button onClick={() => navigate('/subjects')}>Disciplinas</button></li>
+            <li><button onClick={() => navigate('/rooms')}>Salas</button></li>
+            <li><button onClick={() => navigate('/schedule')}>Horário</button></li>
+            <li><button onClick={() => navigate('/logout')}>Sair</button></li>
           </ul>
         </nav>
       </aside>
@@ -47,24 +55,18 @@ const EditSubjectPage = () => {
         <header>
           <h1>Editar Disciplina</h1>
           <nav className="breadcrumb">
-            <Link to="/">Início</Link> &gt; <Link to="/subjects">Disciplinas</Link> &gt; <span>{subject.name}</span>
+            <a href="#">Início</a> &gt; <a href="#">Disciplinas</a> &gt; <a href="#">#{subject.id}</a> &gt; Editar
           </nav>
         </header>
         <section>
           <form className="edit-form" onSubmit={handleSave}>
             <div className="form-group">
               <label htmlFor="subject-id">ID</label>
-              <input type="text" id="subject-id" value={subject.id} readOnly />
+              <input type="text" id="subject-id" name="id" value={subject.id} readOnly />
             </div>
             <div className="form-group">
               <label htmlFor="subject-name">Nome</label>
-              <input
-                type="text"
-                id="subject-name"
-                name="name"
-                value={subject.name}
-                onChange={handleChange}
-              />
+              <input type="text" id="subject-name" name="name" value={subject.name} onChange={handleChange} />
             </div>
             <div className="form-actions">
               <button type="button" className="btn cancel" onClick={() => navigate('/subjects')}>Cancelar</button>
@@ -77,4 +79,4 @@ const EditSubjectPage = () => {
   );
 };
 
-export default EditSubjectPage;
+export default SubjectEditingPage;

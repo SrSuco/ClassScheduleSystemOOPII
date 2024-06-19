@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import scheduleService from '../services/scheduleService';
 import './SchedulePage.css';
-import { Link, useNavigate } from 'react-router-dom';
 
 const SchedulePage = () => {
   const navigate = useNavigate();
+  const [schedules, setSchedules] = useState([]);
 
-  const schedules = [
-    { id: 1, time: '8:00 - 10:00', course: 'Engenharia de Software' },
-    { id: 2, time: '10:00 - 12:00', course: 'Sistemas de Informação' }
-  ];
+  useEffect(() => {
+    const fetchSchedules = async () => {
+      const data = await scheduleService.getSchedules();
+      setSchedules(data);
+    };
+    fetchSchedules();
+  }, []);
 
   return (
     <div className="schedule-page">
@@ -19,12 +24,12 @@ const SchedulePage = () => {
         </div>
         <nav className="navigation">
           <ul>
-            <li><Link to="/registered-courses">Cursos</Link></li>
-            <li><Link to="/teachers">Professores</Link></li>
-            <li><Link to="/subjects">Disciplinas</Link></li>
-            <li><Link to="/rooms">Salas</Link></li>
-            <li><Link to="/schedule">Horário</Link></li>
-            <li><Link to="/logout">Sair</Link></li>
+            <li><button onClick={() => navigate('/registered-courses')}>Cursos</button></li>
+            <li><button onClick={() => navigate('/teachers')}>Professores</button></li>
+            <li><button onClick={() => navigate('/subjects')}>Disciplinas</button></li>
+            <li><button onClick={() => navigate('/rooms')}>Salas</button></li>
+            <li><button onClick={() => navigate('/schedule')}>Horário</button></li>
+            <li><button onClick={() => navigate('/logout')}>Sair</button></li>
           </ul>
         </nav>
       </aside>
@@ -32,7 +37,7 @@ const SchedulePage = () => {
         <header>
           <h1>Horário</h1>
           <nav className="breadcrumb">
-            <Link to="/">Início</Link> &gt; <span>Horário</span>
+            <a href="#">Início</a> &gt; <a href="#">Horário</a>
           </nav>
           <button className="new-schedule" onClick={() => navigate('/new-schedule')}>Novo</button>
         </header>
@@ -41,8 +46,11 @@ const SchedulePage = () => {
             <thead>
               <tr>
                 <th>ID</th>
-                <th>Horário</th>
                 <th>Curso</th>
+                <th>Professor</th>
+                <th>Disciplina</th>
+                <th>Sala</th>
+                <th>Horário</th>
                 <th></th>
               </tr>
             </thead>
@@ -50,8 +58,11 @@ const SchedulePage = () => {
               {schedules.map(schedule => (
                 <tr key={schedule.id}>
                   <td>#{schedule.id}</td>
+                  <td>{schedule.courseName}</td>
+                  <td>{schedule.teacherName}</td>
+                  <td>{schedule.subjectName}</td>
+                  <td>{schedule.roomName}</td>
                   <td>{schedule.time}</td>
-                  <td>{schedule.course}</td>
                   <td><button className="view" onClick={() => navigate(`/view-schedule/${schedule.id}`)}>Visualizar</button></td>
                 </tr>
               ))}

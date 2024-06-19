@@ -1,9 +1,37 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import coursesService from '../services/coursesService';
 import './CourseEditingPage.css';
-import { useNavigate } from 'react-router-dom';
 
 const CourseEditingPage = () => {
   const navigate = useNavigate();
+  const { id } = useParams();
+  const [course, setCourse] = useState({
+    id: '',
+    name: ''
+  });
+
+  useEffect(() => {
+    const fetchCourse = async () => {
+      const data = await coursesService.getCourse(id);
+      setCourse(data);
+    };
+    fetchCourse();
+  }, [id]);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setCourse((prevCourse) => ({
+      ...prevCourse,
+      [name]: value
+    }));
+  };
+
+  const handleSave = async (e) => {
+    e.preventDefault();
+    await coursesService.updateCourse(id, course);
+    navigate('/registered-courses');
+  };
 
   return (
     <div className="course-editing-page">
@@ -31,19 +59,19 @@ const CourseEditingPage = () => {
           </nav>
         </header>
         <section>
-          <form className="edit-form">
+          <form className="edit-form" onSubmit={handleSave}>
             <div className="form-group">
               <label htmlFor="course-id">ID</label>
-              <input type="text" id="course-id" value="1" readOnly />
+              <input type="text" id="course-id" name="id" value={course.id} readOnly />
             </div>
             <div className="form-group">
               <label htmlFor="course-name">Nome</label>
-              <input type="text" id="course-name" value="Bacharel em Engenharia de Software" />
+              <input type="text" id="course-name" name="name" value={course.name} onChange={handleChange} />
             </div>
             <div className="form-actions">
               <button type="button" className="btn cancel" onClick={() => navigate('/registered-courses')}>Cancelar</button>
               <button type="submit" className="btn save">Salvar</button>
-              <button type="button" className="btn edit">Editar</button>
+              <button type="button" className="btn edit" onClick={() => setCourse({ ...course })}>Editar</button>
             </div>
           </form>
         </section>

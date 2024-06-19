@@ -1,13 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import roomsService from '../services/roomsService';
 import './NewRoomRegistrationPage.css';
-import { Link, useNavigate } from 'react-router-dom';
 
 const NewRoomRegistrationPage = () => {
   const navigate = useNavigate();
+  const [room, setRoom] = useState({
+    name: ''
+  });
 
-  const handleSave = () => {
-    // Placeholder function for saving logic
-    alert('Room saved');
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setRoom((prevRoom) => ({
+      ...prevRoom,
+      [name]: value
+    }));
+  };
+
+  const handleSave = async (e) => {
+    e.preventDefault();
+    await roomsService.createRoom(room);
     navigate('/rooms');
   };
 
@@ -20,12 +32,12 @@ const NewRoomRegistrationPage = () => {
         </div>
         <nav className="navigation">
           <ul>
-            <li><Link to="/registered-courses">Cursos</Link></li>
-            <li><Link to="/teachers">Professores</Link></li>
-            <li><Link to="/subjects">Disciplinas</Link></li>
-            <li><Link to="/rooms">Salas</Link></li>
-            <li><Link to="/schedule">Horário</Link></li>
-            <li><Link to="/logout">Sair</Link></li>
+            <li><button onClick={() => navigate('/registered-courses')}>Cursos</button></li>
+            <li><button onClick={() => navigate('/teachers')}>Professores</button></li>
+            <li><button onClick={() => navigate('/subjects')}>Disciplinas</button></li>
+            <li><button onClick={() => navigate('/rooms')}>Salas</button></li>
+            <li><button onClick={() => navigate('/schedule')}>Horário</button></li>
+            <li><button onClick={() => navigate('/logout')}>Sair</button></li>
           </ul>
         </nav>
       </aside>
@@ -33,18 +45,18 @@ const NewRoomRegistrationPage = () => {
         <header>
           <h1>Nova Sala</h1>
           <nav className="breadcrumb">
-            <Link to="/">Início</Link> &gt; <Link to="/rooms">Salas</Link> &gt; <span>Novo</span>
+            <a href="#">Início</a> &gt; <a href="#">Salas</a> &gt; Novo
           </nav>
         </header>
         <section>
-          <form className="new-room-form">
+          <form className="new-room-form" onSubmit={handleSave}>
             <div className="form-group">
               <label htmlFor="room-name">Nome</label>
-              <input type="text" id="room-name" placeholder="Informe o nome" />
+              <input type="text" id="room-name" name="name" placeholder="Informe o nome" value={room.name} onChange={handleChange} />
             </div>
             <div className="form-actions">
               <button type="button" className="btn cancel" onClick={() => navigate('/rooms')}>Cancelar</button>
-              <button type="button" className="btn save" onClick={handleSave}>Salvar</button>
+              <button type="submit" className="btn save">Salvar</button>
             </div>
           </form>
         </section>

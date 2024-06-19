@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import coursesService from '../services/coursesService';
 import './RegisteredCoursesPage.css';
-import { Link, useNavigate } from 'react-router-dom';
 
 const RegisteredCoursesPage = () => {
   const navigate = useNavigate();
+  const [courses, setCourses] = useState([]);
 
-  const courses = [
-    { id: 1, name: 'Bacharel em Engenharia de Software' },
-    { id: 2, name: 'Bacharel em Sistemas de Informação' }
-  ];
+  useEffect(() => {
+    const fetchCourses = async () => {
+      const data = await coursesService.getCourses();
+      setCourses(data);
+    };
+    fetchCourses();
+  }, []);
 
   return (
     <div className="registered-courses-page">
@@ -19,12 +24,12 @@ const RegisteredCoursesPage = () => {
         </div>
         <nav className="navigation">
           <ul>
-            <li><Link to="/registered-courses">Cursos</Link></li>
-            <li><Link to="/teachers">Professores</Link></li>
-            <li><Link to="/subjects">Disciplinas</Link></li>
-            <li><Link to="/rooms">Salas</Link></li>
-            <li><Link to="/schedule">Horário</Link></li>
-            <li><Link to="/logout">Sair</Link></li>
+            <li><button onClick={() => navigate('/registered-courses')}>Cursos</button></li>
+            <li><button onClick={() => navigate('/teachers')}>Professores</button></li>
+            <li><button onClick={() => navigate('/subjects')}>Disciplinas</button></li>
+            <li><button onClick={() => navigate('/rooms')}>Salas</button></li>
+            <li><button onClick={() => navigate('/schedule')}>Horário</button></li>
+            <li><button onClick={() => navigate('/logout')}>Sair</button></li>
           </ul>
         </nav>
       </aside>
@@ -32,7 +37,7 @@ const RegisteredCoursesPage = () => {
         <header>
           <h1>Cursos</h1>
           <nav className="breadcrumb">
-            <Link to="/">Início</Link> &gt; <span>Cursos</span>
+            <a href="#">Início</a> &gt; <a href="#">Cursos</a>
           </nav>
           <button className="new-course" onClick={() => navigate('/new-course')}>Novo</button>
         </header>

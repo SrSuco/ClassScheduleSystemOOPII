@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import subjectsService from '../services/subjectsService';
 import './SubjectsPage.css';
-import { Link, useNavigate } from 'react-router-dom';
 
 const SubjectsPage = () => {
   const navigate = useNavigate();
+  const [subjects, setSubjects] = useState([]);
 
-  const subjects = [
-    { id: 1, name: 'Subject A' },
-    { id: 2, name: 'Subject B' }
-  ];
+  useEffect(() => {
+    const fetchSubjects = async () => {
+      const data = await subjectsService.getSubjects();
+      setSubjects(data);
+    };
+    fetchSubjects();
+  }, []);
 
   return (
     <div className="subjects-page">
@@ -19,12 +24,12 @@ const SubjectsPage = () => {
         </div>
         <nav className="navigation">
           <ul>
-            <li><Link to="/registered-courses">Cursos</Link></li>
-            <li><Link to="/teachers">Professores</Link></li>
-            <li><Link to="/subjects">Disciplinas</Link></li>
-            <li><Link to="/rooms">Salas</Link></li>
-            <li><Link to="/schedule">Horário</Link></li>
-            <li><Link to="/logout">Sair</Link></li>
+            <li><button onClick={() => navigate('/registered-courses')}>Cursos</button></li>
+            <li><button onClick={() => navigate('/teachers')}>Professores</button></li>
+            <li><button onClick={() => navigate('/subjects')}>Disciplinas</button></li>
+            <li><button onClick={() => navigate('/rooms')}>Salas</button></li>
+            <li><button onClick={() => navigate('/schedule')}>Horário</button></li>
+            <li><button onClick={() => navigate('/logout')}>Sair</button></li>
           </ul>
         </nav>
       </aside>
@@ -32,7 +37,7 @@ const SubjectsPage = () => {
         <header>
           <h1>Disciplinas</h1>
           <nav className="breadcrumb">
-            <Link to="/">Início</Link> &gt; <span>Disciplinas</span>
+            <a href="#">Início</a> &gt; <a href="#">Disciplinas</a>
           </nav>
           <button className="new-subject" onClick={() => navigate('/new-subject')}>Novo</button>
         </header>

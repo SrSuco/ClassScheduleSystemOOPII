@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import roomsService from '../services/roomsService';
 import './RoomsPage.css';
-import { Link, useNavigate } from 'react-router-dom';
 
 const RoomsPage = () => {
   const navigate = useNavigate();
+  const [rooms, setRooms] = useState([]);
 
-  const rooms = [
-    { id: 1, name: 'Room A' },
-    { id: 2, name: 'Room B' }
-  ];
+  useEffect(() => {
+    const fetchRooms = async () => {
+      const data = await roomsService.getRooms();
+      setRooms(data);
+    };
+    fetchRooms();
+  }, []);
 
   return (
     <div className="rooms-page">
@@ -19,12 +24,12 @@ const RoomsPage = () => {
         </div>
         <nav className="navigation">
           <ul>
-            <li><Link to="/registered-courses">Cursos</Link></li>
-            <li><Link to="/teachers">Professores</Link></li>
-            <li><Link to="/subjects">Disciplinas</Link></li>
-            <li><Link to="/rooms">Salas</Link></li>
-            <li><Link to="/schedule">Horário</Link></li>
-            <li><Link to="/logout">Sair</Link></li>
+            <li><button onClick={() => navigate('/registered-courses')}>Cursos</button></li>
+            <li><button onClick={() => navigate('/teachers')}>Professores</button></li>
+            <li><button onClick={() => navigate('/subjects')}>Disciplinas</button></li>
+            <li><button onClick={() => navigate('/rooms')}>Salas</button></li>
+            <li><button onClick={() => navigate('/schedule')}>Horário</button></li>
+            <li><button onClick={() => navigate('/logout')}>Sair</button></li>
           </ul>
         </nav>
       </aside>
@@ -32,7 +37,7 @@ const RoomsPage = () => {
         <header>
           <h1>Salas</h1>
           <nav className="breadcrumb">
-            <Link to="/">Início</Link> &gt; <span>Salas</span>
+            <a href="#">Início</a> &gt; <a href="#">Salas</a>
           </nav>
           <button className="new-room" onClick={() => navigate('/new-room')}>Novo</button>
         </header>

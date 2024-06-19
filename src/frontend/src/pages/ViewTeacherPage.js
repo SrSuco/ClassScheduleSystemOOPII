@@ -1,16 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import teachersService from '../services/teachersService';
 import './ViewTeacherPage.css';
-import { Link, useNavigate, useParams } from 'react-router-dom';
 
 const ViewTeacherPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const [teacher, setTeacher] = useState({
+    id: '',
+    name: '',
+    lastUpdate: ''
+  });
 
-  const teacher = {
-    id: 1,
-    name: 'John Doe',
-    lastUpdate: '10/06/2024'
-  }; // This should be fetched from a data source
+  useEffect(() => {
+    const fetchTeacher = async () => {
+      const data = await teachersService.getTeacher(id);
+      setTeacher(data);
+    };
+    fetchTeacher();
+  }, [id]);
 
   return (
     <div className="view-teacher-page">
@@ -21,12 +29,12 @@ const ViewTeacherPage = () => {
         </div>
         <nav className="navigation">
           <ul>
-            <li><Link to="/registered-courses">Cursos</Link></li>
-            <li><Link to="/teachers">Professores</Link></li>
-            <li><Link to="/subjects">Disciplinas</Link></li>
-            <li><Link to="/rooms">Salas</Link></li>
-            <li><Link to="/schedule">Horário</Link></li>
-            <li><Link to="/logout">Sair</Link></li>
+            <li><button onClick={() => navigate('/registered-courses')}>Cursos</button></li>
+            <li><button onClick={() => navigate('/teachers')}>Professores</button></li>
+            <li><button onClick={() => navigate('/subjects')}>Disciplinas</button></li>
+            <li><button onClick={() => navigate('/rooms')}>Salas</button></li>
+            <li><button onClick={() => navigate('/schedule')}>Horário</button></li>
+            <li><button onClick={() => navigate('/logout')}>Sair</button></li>
           </ul>
         </nav>
       </aside>
@@ -34,7 +42,7 @@ const ViewTeacherPage = () => {
         <header>
           <h1>Visualizar Professor</h1>
           <nav className="breadcrumb">
-            <Link to="/">Início</Link> &gt; <Link to="/teachers">Professores</Link> &gt; <span>{teacher.name}</span>
+            <a href="#">Início</a> &gt; <a href="#">Professores</a> &gt; <a href="#">#{teacher.id}</a>
           </nav>
         </header>
         <section>
@@ -52,7 +60,7 @@ const ViewTeacherPage = () => {
               <input type="text" id="last-update" value={teacher.lastUpdate} readOnly />
             </div>
             <div className="form-actions">
-              <button type="button" className="btn edit" onClick={() => navigate(`/edit-teacher/${id}`)}>Editar</button>
+              <button type="button" className="btn edit" onClick={() => navigate(`/edit-teacher/${teacher.id}`)}>Editar</button>
             </div>
           </form>
         </section>
