@@ -57,7 +57,6 @@ const NewCourseRegistrationPage = () => {
             <div className="form-actions">
               <button type="button" className="btn cancel" onClick={() => navigate('/registered-courses')}>Cancelar</button>
               <button type="submit" className="btn save">Salvar</button>
-              <button type="button" className="btn delete" onClick={() => setCourse({ ...course })}>Excluir</button>
             </div>
           </form>
         </section>

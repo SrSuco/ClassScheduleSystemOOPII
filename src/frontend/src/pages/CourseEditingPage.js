@@ -1,36 +1,38 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import coursesService from '../services/coursesService';
+import courseService from '../services/coursesService';
 import './CourseEditingPage.css';
 
 const CourseEditingPage = () => {
-  const navigate = useNavigate();
   const { id } = useParams();
-  const [course, setCourse] = useState({
-    id: '',
-    name: ''
-  });
+  const navigate = useNavigate();
+  const [course, setCourse] = useState({ name: '', description: '' });
 
   useEffect(() => {
     const fetchCourse = async () => {
-      const data = await coursesService.getCourse(id);
-      setCourse(data);
+      try {
+        const data = await courseService.getCourse(id);
+        setCourse(data);
+      } catch (error) {
+        console.error('Failed to fetch course:', error);
+      }
     };
     fetchCourse();
   }, [id]);
 
-  const handleChange = (e) => {
+  const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setCourse((prevCourse) => ({
-      ...prevCourse,
-      [name]: value
-    }));
+    setCourse({ ...course, [name]: value });
   };
 
-  const handleSave = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    await coursesService.updateCourse(id, course);
-    navigate('/registered-courses');
+    try {
+      await courseService.updateCourse(id, course);
+      navigate(`/view-course/${id}`);
+    } catch (error) {
+      console.error('Failed to update course:', error);
+    }
   };
 
   return (
@@ -55,23 +57,26 @@ const CourseEditingPage = () => {
         <header>
           <h1>Editar Curso</h1>
           <nav className="breadcrumb">
-            <a href="#">Início</a> &gt; <a href="#">Cursos</a> &gt; <a href="#">#1</a> &gt; Editar
+            <a href="/">Início</a> &gt; <a href="/registered-courses">Cursos</a> &gt; <a href={`/view-course/${id}`}>#{id}</a> &gt; Editar
           </nav>
         </header>
         <section>
-          <form className="edit-form" onSubmit={handleSave}>
+          <form className="edit-form" onSubmit={handleSubmit}>
             <div className="form-group">
               <label htmlFor="course-id">ID</label>
-              <input type="text" id="course-id" name="id" value={course.id} readOnly />
+              <input type="text" id="course-id" value={id} readOnly />
             </div>
             <div className="form-group">
               <label htmlFor="course-name">Nome</label>
-              <input type="text" id="course-name" name="name" value={course.name} onChange={handleChange} />
+              <input type="text" id="course-name" name="Nome" value={course.name} onChange={handleInputChange} />
+            </div>
+            <div className="form-group">
+              <label htmlFor="course-description">Descrição</label>
+              <textarea id="course-description" name="description" value={course.description} onChange={handleInputChange}></textarea>
             </div>
             <div className="form-actions">
-              <button type="button" className="btn cancel" onClick={() => navigate('/registered-courses')}>Cancelar</button>
+              <button type="button" className="btn cancel" onClick={() => navigate(`/view-course/${id}`)}>Cancelar</button>
               <button type="submit" className="btn save">Salvar</button>
-              <button type="button" className="btn edit" onClick={() => setCourse({ ...course })}>Editar</button>
             </div>
           </form>
         </section>

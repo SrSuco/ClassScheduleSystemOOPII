@@ -1,6 +1,7 @@
 .new-schedule-page {
   display: flex;
   height: 100vh;
+  font-family: Arial, sans-serif;
 }
 
 .sidebar {
@@ -39,66 +40,49 @@
 .navigation ul {
   list-style-type: none;
   padding: 0;
+  width: 100%;
 }
 
 .navigation li {
   width: 100%;
-  text-align: center;
-  margin: 10px 0;
 }
 
-.navigation button {
+.navigation a {
   color: white;
-  background: none;
-  border: none;
-  width: 100%;
-  text-align: left;
-  font-size: 1.1em;
-  padding: 10px;
-  cursor: pointer;
+  text-decoration: none;
+  display: block;
+  padding: 10px 20px;
+  border-radius: 5px;
 }
 
-.navigation button:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+.navigation a:hover {
+  background-color: #7CB342;
 }
 
 .main-content {
-  flex-grow: 1;
+  flex: 1;
   padding: 20px;
 }
 
 header {
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 20px;
 }
 
-header h1 {
-  margin: 0;
-}
-
-.breadcrumb {
-  font-size: 0.9em;
-  color: #666;
-}
-
 .breadcrumb a {
-  color: #666;
+  color: #8BC34A;
   text-decoration: none;
-}
-
-.breadcrumb a:hover {
-  text-decoration: underline;
 }
 
 .new-schedule-form {
   display: flex;
   flex-direction: column;
-  max-width: 400px;
 }
 
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .form-group label {
@@ -106,24 +90,24 @@ header h1 {
   margin-bottom: 5px;
 }
 
-.form-group input {
+.form-group input,
+.form-group select {
   width: 100%;
   padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  box-sizing: border-box;
 }
 
 .form-actions {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
+  gap: 10px;
 }
 
 .btn {
   padding: 10px 20px;
   border: none;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
-  font-size: 1em;
 }
 
 .btn.cancel {
@@ -132,6 +116,6 @@ header h1 {
 }
 
 .btn.save {
-  background-color: #3F51B5;
+  background-color: #8BC34A;
   color: white;
 }

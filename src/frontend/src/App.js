@@ -12,12 +12,15 @@ import SchedulePage from './pages/SchedulePage';
 import NewTeacherRegistrationPage from './pages/NewTeacherRegistrationPage';
 import NewSubjectRegistrationPage from './pages/NewSubjectRegistrationPage';
 import NewRoomRegistrationPage from './pages/NewRoomRegistrationPage';
+import NewSchedulePage from './pages/NewSchedulePage';
 import ViewTeacherPage from './pages/ViewTeacherPage';
 import ViewSubjectPage from './pages/ViewSubjectPage';
 import ViewRoomPage from './pages/ViewRoomPage';
+import ViewSchedulePage from './pages/ViewSchedulePage';
 import EditTeacherPage from './pages/EditTeacherPage';
 import EditSubjectPage from './pages/EditSubjectPage';
 import EditRoomPage from './pages/EditRoomPage';
+import EditSchedulePage from './pages/EditSchedulePage';
 
 function App() {
   return (
@@ -25,7 +28,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/registered-courses" element={<RegisteredCoursesPage />} />
-        <Route path="/edit-course" element={<CourseEditingPage />} />
+        <Route path="/edit-course/:id" element={<CourseEditingPage />} />
         <Route path="/new-course" element={<NewCourseRegistrationPage />} />
         <Route path="/view-course/:id" element={<ViewPage />} />
         <Route path="/teachers" element={<TeachersPage />} />
@@ -35,12 +38,15 @@ function App() {
         <Route path="/new-teacher" element={<NewTeacherRegistrationPage />} />
         <Route path="/new-subject" element={<NewSubjectRegistrationPage />} />
         <Route path="/new-room" element={<NewRoomRegistrationPage />} />
+        <Route path="/new-schedule" element={<NewSchedulePage />} />
         <Route path="/view-teacher/:id" element={<ViewTeacherPage />} />
         <Route path="/view-subject/:id" element={<ViewSubjectPage />} />
         <Route path="/view-room/:id" element={<ViewRoomPage />} />
+        <Route path="/view-schedule/:id" element={<ViewSchedulePage />} />
         <Route path="/edit-teacher/:id" element={<EditTeacherPage />} />
         <Route path="/edit-subject/:id" element={<EditSubjectPage />} />
         <Route path="/edit-room/:id" element={<EditRoomPage />} />
+        <Route path="/edit-schedule/:id" element={<EditSchedulePage />} />
       </Routes>
     </Router>
   );

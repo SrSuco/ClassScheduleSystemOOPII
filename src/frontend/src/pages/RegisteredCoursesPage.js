@@ -4,13 +4,17 @@ import coursesService from '../services/coursesService';
 import './RegisteredCoursesPage.css';
 
 const RegisteredCoursesPage = () => {
-  const navigate = useNavigate();
   const [courses, setCourses] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchCourses = async () => {
-      const data = await coursesService.getCourses();
-      setCourses(data);
+      try {
+        const data = await coursesService.getCourses();
+        setCourses(data);
+      } catch (err) {
+        console.error('Failed to fetch courses:', err);
+      }
     };
     fetchCourses();
   }, []);
@@ -52,10 +56,10 @@ const RegisteredCoursesPage = () => {
             </thead>
             <tbody>
               {courses.map(course => (
-                <tr key={course.id}>
-                  <td>#{course.id}</td>
+                <tr key={course._id}>
+                  <td>#{course._id}</td>
                   <td>{course.name}</td>
-                  <td><button className="view" onClick={() => navigate(`/view-course/${course.id}`)}>Visualizar</button></td>
+                  <td><button className="view" onClick={() => navigate(`/view-course/${course._id}`)}>Visualizar</button></td>
                 </tr>
               ))}
             </tbody>

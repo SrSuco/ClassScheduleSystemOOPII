@@ -12,13 +12,13 @@ const getCourse = async (id) => {
   return response.data;
 };
 
-const createCourse = async (course) => {
-  const response = await axios.post(API_URL, course);
+const createCourse = async (courseData) => {
+  const response = await axios.post(API_URL, courseData);
   return response.data;
 };
 
-const updateCourse = async (id, course) => {
-  const response = await axios.put(`${API_URL}/${id}`, course);
+const updateCourse = async (id, courseData) => {
+  const response = await axios.put(`${API_URL}/${id}`, courseData);
   return response.data;
 };
 
@@ -32,5 +32,5 @@ export default {
   getCourse,
   createCourse,
   updateCourse,
-  deleteCourse
+  deleteCourse,
 };

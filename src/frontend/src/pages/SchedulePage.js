@@ -56,14 +56,14 @@ const SchedulePage = () => {
             </thead>
             <tbody>
               {schedules.map(schedule => (
-                <tr key={schedule.id}>
-                  <td>#{schedule.id}</td>
-                  <td>{schedule.courseName}</td>
-                  <td>{schedule.teacherName}</td>
-                  <td>{schedule.subjectName}</td>
-                  <td>{schedule.roomName}</td>
+                <tr key={schedule._id}>
+                  <td>#{schedule._id}</td>
+                  <td>{schedule.course.name}</td>
+                  <td>{schedule.teacher.name}</td>
+                  <td>{schedule.subject.name}</td>
+                  <td>{schedule.room.name}</td>
                   <td>{schedule.time}</td>
-                  <td><button className="view" onClick={() => navigate(`/view-schedule/${schedule.id}`)}>Visualizar</button></td>
+                  <td><button className="view" onClick={() => navigate(`/view-schedule/${schedule._id}`)}>Visualizar</button></td>
                 </tr>
               ))}
             </tbody>

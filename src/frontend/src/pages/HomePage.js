@@ -13,11 +13,11 @@ const HomePage = () => {
         <nav className="navigation">
           <ul>
             <li><Link to="/registered-courses">Cursos</Link></li>
-            <li><Link to="/professores">Professores</Link></li>
-            <li><Link to="/disciplinas">Disciplinas</Link></li>
-            <li><Link to="/salas">Salas</Link></li>
-            <li><Link to="/horario">Horário</Link></li>
-            <li><Link to="/sair">Sair</Link></li>
+            <li><Link to="/teachers">Professores</Link></li>
+            <li><Link to="/subjects">Disciplinas</Link></li>
+            <li><Link to="/rooms">Salas</Link></li>
+            <li><Link to="/schedule">Horário</Link></li>
+            <li><Link to="/logout">Sair</Link></li>
           </ul>
         </nav>
       </aside>

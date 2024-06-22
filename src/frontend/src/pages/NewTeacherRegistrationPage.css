@@ -1,7 +1,6 @@
 .new-teacher-registration-page {
   display: flex;
   height: 100vh;
-  font-family: Arial, sans-serif;
 }
 
 .sidebar {
@@ -49,7 +48,7 @@
   margin: 10px 0;
 }
 
-.navigation button, .navigation a {
+.navigation button {
   color: white;
   background: none;
   border: none;
@@ -58,10 +57,9 @@
   font-size: 1.1em;
   padding: 10px;
   cursor: pointer;
-  text-decoration: none;
 }
 
-.navigation button:hover, .navigation a:hover {
+.navigation button:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
@@ -110,7 +108,8 @@ header h1 {
   margin-bottom: 5px;
 }
 
-.form-group input {
+.form-group input,
+.form-group select {
   width: 100%;
   padding: 8px;
   border: 1px solid #ccc;
@@ -137,5 +136,10 @@ header h1 {
 
 .btn.save {
   background-color: #3F51B5;
+  color: white;
+}
+
+.btn.delete {
+  background-color: #F44336;
   color: white;
 }

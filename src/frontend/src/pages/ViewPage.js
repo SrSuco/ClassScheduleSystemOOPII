@@ -3,25 +3,34 @@ import { useParams, useNavigate } from 'react-router-dom';
 import coursesService from '../services/coursesService';
 import './ViewPage.css';
 
-const ViewPage = () => {
+const ViewCoursePage = () => {
   const { id } = useParams();
+  const [course, setCourse] = useState(null);
+  const [error, setError] = useState('');
   const navigate = useNavigate();
-  const [course, setCourse] = useState({
-    id: '',
-    name: '',
-    lastUpdate: ''
-  });
 
   useEffect(() => {
     const fetchCourse = async () => {
-      const data = await coursesService.getCourse(id);
-      setCourse(data);
+      try {
+        const data = await coursesService.getCourse(id);
+        setCourse(data);
+      } catch (err) {
+        setError(err.message);
+      }
     };
     fetchCourse();
   }, [id]);
 
+  if (error) {
+    return <div className="error">Error: {error}</div>;
+  }
+
+  if (!course) {
+    return <div className="loading">Loading...</div>;
+  }
+
   return (
-    <div className="view-page">
+    <div className="view-course-page">
       <aside className="sidebar">
         <div className="profile">
           <div className="avatar"></div>
@@ -40,33 +49,24 @@ const ViewPage = () => {
       </aside>
       <main className="main-content">
         <header>
-          <h1>Visualizar Curso</h1>
+          <h1>Detalhes do Curso</h1>
           <nav className="breadcrumb">
-            <a href="#">Início</a> &gt; <a href="#">Cursos</a> &gt; <a href="#">#{course.id}</a>
+            <a onClick={() => navigate('/')}>Início</a> &gt; <a onClick={() => navigate('/registered-courses')}>Cursos</a> &gt; <span>Detalhes</span>
           </nav>
         </header>
         <section>
-          <form className="view-form">
-            <div className="form-group">
-              <label htmlFor="course-id">ID</label>
-              <input type="text" id="course-id" value={course.id} readOnly />
-            </div>
-            <div className="form-group">
-              <label htmlFor="course-name">Nome</label>
-              <input type="text" id="course-name" value={course.name} readOnly />
-            </div>
-            <div className="form-group">
-              <label htmlFor="last-update">Data da Última atualização</label>
-              <input type="text" id="last-update" value={course.lastUpdate} readOnly />
-            </div>
-            <div className="form-actions">
-              <button type="button" className="btn edit" onClick={() => navigate(`/edit-course/${course.id}`)}>Editar</button>
-            </div>
-          </form>
+          <div className="course-detail">
+            <div><strong>ID:</strong> {course._id}</div>
+            <div><strong>Nome:</strong> {course.name}</div>
+            <div><strong>Descrição:</strong> {course.description}</div>
+          </div>
+          <div className="form-actions">
+            <button className="btn edit" onClick={() => navigate(`/edit-course/${course._id}`)}>Editar</button>
+          </div>
         </section>
       </main>
     </div>
   );
 };
 
-export default ViewPage;
+export default ViewCoursePage;

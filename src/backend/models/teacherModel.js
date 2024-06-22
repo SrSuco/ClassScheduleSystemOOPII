@@ -1,17 +1,10 @@
 const mongoose = require('mongoose');
 
-const TeacherSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: [true, 'Please add a name'],
-  },
-  email: {
-    type: String,
-    required: [true, 'Please add an email'],
-  },
-  department: {
-    type: String,
-  },
+const teacherSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true
+    }
 });
 
-module.exports = mongoose.model('Teacher', TeacherSchema);
+module.exports = mongoose.model('Teacher', teacherSchema);

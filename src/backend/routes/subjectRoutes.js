@@ -1,14 +1,17 @@
 const express = require('express');
 const router = express.Router();
 const {
-  getSubjects,
-  getSubjectById,
-  createSubject,
-  updateSubject,
-  deleteSubject
+    createSubject,
+    getSubjects,
+    getSubjectById,
+    updateSubject,
+    deleteSubject
 } = require('../controllers/subjectController');
 
-router.route('/').get(getSubjects).post(createSubject);
-router.route('/:id').get(getSubjectById).put(updateSubject).delete(deleteSubject);
+router.post('/', createSubject);
+router.get('/', getSubjects);
+router.get('/:id', getSubjectById);
+router.put('/:id', updateSubject);
+router.delete('/:id', deleteSubject);
 
 module.exports = router;
